@@ -1,8 +1,8 @@
 <?php
 
-    function first()
+    function infoOut($pathToFile)
     {
-        $pathToFile = $_SERVER['DOCUMENT_ROOT'] . '/file_upload.js';
+
         $text = file_get_contents($pathToFile);
         if (file_exists($pathToFile)) {
 
@@ -15,11 +15,11 @@
 
                 $count = substr_count( $parameters, "," );
 
-                echo $value . ' ' .':'. preg_replace("~(function) (\((.+?)\))~" ,' ', $value)
-                    .($count + 1 )  . '<br>' . '<hr>' ;
+                echo sprintf($value . ' ' .':'. preg_replace("~(function) (\((.+?)\))~" ,' ', $value)
+                    .($count + 1 )  . '<br>' . '<hr>');
             }
         }
     }
 
-     first();
+     infoOut( $_SERVER['DOCUMENT_ROOT'] . '/file_upload.js');
 
